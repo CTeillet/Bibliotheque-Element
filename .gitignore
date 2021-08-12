@@ -1,0 +1,5 @@
+/src/main/resources/bibliothequeElement/ffmpeg/
+/build
+/.gradle
+/preview
+library.sqlite

@@ -1,0 +1,55 @@
+//noinspection GroovyAssignabilityCheck
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+}
+
+group 'com.teillet'
+version '1.0-SNAPSHOT'
+
+//noinspection GroovyAssignabilityCheck
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'net.coobird:thumbnailator:[0.4, 0.5)'
+    //noinspection GradlePackageUpdate
+    implementation 'commons-codec:commons-codec:1.15'
+    implementation 'net.bramp.ffmpeg:ffmpeg:0.6.2'
+    implementation 'com.positiondev.epublib:epublib-core:3.1'
+    implementation 'com.positiondev.epublib:epublib-tools:3.1'
+    implementation 'uk.co.caprica:vlcj:4.7.1'
+    implementation 'uk.co.caprica:vlcj-javafx:1.0.2'
+    implementation 'org.xerial:sqlite-jdbc:3.36.0.1'
+    implementation 'org.jetbrains:annotations:21.0.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+    implementation group: 'com.tagtraum', name: 'ffmpeg', version: '4.0.0', ext: 'pom'
+
+
+}
+
+javafx {
+    version = "15.0.1"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+test {
+    useJUnitPlatform()
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+application {
+    mainClass = 'com.teillet.bibliothequeElement.graphicInterface.test.MultiSelectionComboDemo'
+}
