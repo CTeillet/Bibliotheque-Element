@@ -1,3 +1,5 @@
 # Bibliotheque-Element
 
-FFMPEG version 2021-08-10
+##FFMPEG
+- windows version :  2021-08-10
+- macOS version : 103193

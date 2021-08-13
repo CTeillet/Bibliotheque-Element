@@ -14,6 +14,6 @@ public class Game extends Elements{
 
     @Override
     public String getType() {
-        return null;
+        return "Game";
     }
 }

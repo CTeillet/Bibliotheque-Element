@@ -51,5 +51,5 @@ idea {
 }
 
 application {
-    mainClass = 'com.teillet.bibliothequeElement.graphicInterface.test.MultiSelectionComboDemo'
+    mainClass = 'com.teillet.bibliothequeElement.graphicInterface.Main'
 }

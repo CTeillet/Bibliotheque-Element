@@ -1,14 +1,16 @@
 package com.teillet.bibliothequeElement.utils;
 
 import com.teillet.bibliothequeElement.interfaces.library.IElements;
+import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Constructor;
 
 public class Utils {
     public static IElements Object2Elements(String type, String path, String title) {
         try {
-            @SuppressWarnings("unchecked") Class<IElements> cls = (Class<IElements>) Class.forName("com.teillet.bibliothequeElement.library."
-                    + type);
+            String t = StringUtils.capitalize(type.toLowerCase());
+            String className = "com.teillet.bibliothequeElement.library." + t;
+            @SuppressWarnings("unchecked") Class<IElements> cls = (Class<IElements>) Class.forName(className);
             @SuppressWarnings("rawtypes") Class[] partypes = new Class[2];
             partypes[0] = String.class;
             partypes[1] = String.class;

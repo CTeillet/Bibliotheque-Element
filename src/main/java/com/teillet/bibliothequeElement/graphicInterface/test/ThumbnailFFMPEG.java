@@ -11,16 +11,14 @@ import java.util.concurrent.TimeUnit;
 
 public class ThumbnailFFMPEG {
     public static void main(String[] args) throws IOException {
-        String filename = "C:\\Users\\teill\\Downloads\\test2.mp4";
-        File f = new File(filename);
         FFmpeg ffmpeg = new FFmpeg("C:\\Program Files\\ffmpeg-4.4-full_build\\bin\\ffmpeg.exe");
         FFprobe ffprobe = new FFprobe("C:\\Program Files\\ffmpeg-4.4-full_build\\bin\\ffprobe.exe");
 
         FFmpegBuilder builder = new FFmpegBuilder()
-                .setInput("C:\\\\Users\\\\teill\\\\IdeaProjects\\\\Bibliotheque-Element\\src\\main\\resources\\bibliothequeElement\\element\\BigBuckBunny.mp4")
+                .setInput("C:\\Users\\teill\\IdeaProjects\\Bibliotheque-Element\\src\\main\\resources\\bibliothequeElement\\element\\BigBuckBunny.mp4")
                 .overrideOutputFiles(true)
 
-                .addOutput("preview/"+f.getName()+".png")
+                .addOutput("preview/test.png")
                     .setFrames(1)
                     .setVideoFilter("select='gte(n\\,10)',scale=200:-1")
                     .done();

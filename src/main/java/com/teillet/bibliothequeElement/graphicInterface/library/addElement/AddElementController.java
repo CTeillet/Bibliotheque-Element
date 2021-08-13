@@ -46,7 +46,6 @@ public class AddElementController {
         IElements elem = Utils.Object2Elements(type, path, title);
         assert elem != null;
         boolean res = BDElements.addElements(elem);
-        System.out.println(res);
         ((Stage)((Node)actionEvent.getSource()).getScene().getWindow()).close();
     }
 }

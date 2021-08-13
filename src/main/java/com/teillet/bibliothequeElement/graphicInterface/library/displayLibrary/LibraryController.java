@@ -47,8 +47,9 @@ public class LibraryController {
     }
 
     public void populateListView() {
+        listView.getItems().clear();
         try {
-            String query = "select * from elements";
+            String query = "Select * from elements";
             PreparedStatement prestate = BDConnect.connect().prepareStatement(query);
             ResultSet result = prestate.executeQuery();
 
@@ -67,4 +68,8 @@ public class LibraryController {
             ex.printStackTrace();
         }
     }
+
+//    public void removeElement(ActionEvent actionEvent){
+//        listView.
+//    }
 }
