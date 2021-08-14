@@ -1,5 +1,7 @@
 package com.teillet.bibliothequeElement.library;
 
+import net.coobird.thumbnailator.Thumbnailator;
+
 import java.io.File;
 
 public class Image extends Elements{
@@ -9,17 +11,23 @@ public class Image extends Elements{
 
     @Override
     public javafx.scene.image.Image getPreview() {
-        if (previewGenerated()){
-            return null;
-        }else{
-            try {
-                File file = new File(getPath());
+        String extension = "jpeg";
+        try {
+            if (previewGenerated(extension)){
+                File file = new File(generateNamePreview(extension));
                 String localUrl = file.toURI().toURL().toString();
                 return new javafx.scene.image.Image(localUrl);
-            }catch (Exception e){
-                e.printStackTrace();
-                return null;
+            }else{
+                String nameFile = generateNamePreview(extension);
+                File outputFile = new File(nameFile);
+                File inputFile = new File(getPath());
+                Thumbnailator.createThumbnail(inputFile, outputFile, 100, 100);
+                String localUrl = outputFile.toURI().toURL().toString();
+                return new javafx.scene.image.Image(localUrl);
             }
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
         }
 
     }

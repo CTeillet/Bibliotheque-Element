@@ -24,6 +24,11 @@ import java.sql.ResultSet;
 public class LibraryController {
     @FXML
     ListView<IElements> listView;
+    ObservableList<IElements> list = FXCollections.observableArrayList();
+
+    LibraryController(){
+        listView.setItems(list);
+    }
 
     public void addPopUp(ActionEvent actionEvent) throws IOException {
         //Chargement du fxml
@@ -57,10 +62,8 @@ public class LibraryController {
                 String type = result.getString("type");
 
                 IElements elem = Utils.Object2Elements(type,result.getString("path"),result.getString("title"));
-                ObservableList<IElements> list = FXCollections.observableArrayList(elem);
-                listView.getItems().addAll(list);
+                if(!list.contains(elem))list.add(elem);
             }
-            listView.setCellFactory(lv -> new ElementListCell());
 
             prestate.close();
             result.close();
