@@ -53,4 +53,9 @@ public class Data {
     public void onActionPlay(ActionEvent event){
         elem.play();
     }
+
+    @FXML
+    public void onActionDelete(ActionEvent event){
+
+    }
 }
