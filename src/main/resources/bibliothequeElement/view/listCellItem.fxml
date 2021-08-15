@@ -7,11 +7,11 @@
 <HBox xmlns:fx="http://javafx.com/fxml" fx:id="hBox">
     <ImageView fx:id="imageView" fitWidth="30" preserveRatio="true"
                cache="true"/>
-    <VBox>
-        <Label fx:id="label1"/>
+    <VBox alignment="CENTER_LEFT">
         <Label fx:id="label2"/>
+        <Label fx:id="label1"/>
     </VBox>
-    <VBox>
+    <VBox alignment="CENTER_RIGHT">
         <Button>Play</Button>
         <Button>Delete</Button>
     </VBox>

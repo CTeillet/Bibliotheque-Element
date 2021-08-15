@@ -16,6 +16,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(mainFXMLURL);
         Parent root = fxmlLoader.load();
         LibraryController lb = fxmlLoader.getController();
+        lb.setList();
         lb.populateListView();
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));

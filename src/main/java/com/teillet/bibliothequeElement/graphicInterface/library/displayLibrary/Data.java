@@ -5,13 +5,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 
 public class Data {
     @FXML
-    private HBox hBox;
+    private GridPane gridPane;
     @FXML
     private Label label1;
     @FXML
@@ -21,7 +21,7 @@ public class Data {
 
     public Data()
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/bibliothequeElement/view/listCellItem.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/bibliothequeElement/view/listCellItem2.fxml"));
         fxmlLoader.setController(this);
         try
         {
@@ -40,8 +40,8 @@ public class Data {
         imageView.setImage(elem.getPreview());
     }
 
-    public HBox getBox()
+    public GridPane getBox()
     {
-        return hBox;
+        return gridPane;
     }
 }

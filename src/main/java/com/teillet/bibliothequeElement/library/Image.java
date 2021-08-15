@@ -11,14 +11,13 @@ public class Image extends Elements{
 
     @Override
     public javafx.scene.image.Image getPreview() {
-        String extension = "jpeg";
         try {
-            if (previewGenerated(extension)){
-                File file = new File(generateNamePreview(extension));
+            if (previewGenerated()){
+                File file = new File(generateNamePreview());
                 String localUrl = file.toURI().toURL().toString();
                 return new javafx.scene.image.Image(localUrl);
             }else{
-                String nameFile = generateNamePreview(extension);
+                String nameFile = generateNamePreview();
                 File outputFile = new File(nameFile);
                 File inputFile = new File(getPath());
                 Thumbnailator.createThumbnail(inputFile, outputFile, 100, 100);

@@ -3,7 +3,6 @@ package com.teillet.bibliothequeElement.graphicInterface.library.displayLibrary;
 import com.teillet.bibliothequeElement.database.BDConnect;
 import com.teillet.bibliothequeElement.graphicInterface.library.addElement.AddElementController;
 import com.teillet.bibliothequeElement.interfaces.library.IElements;
-import com.teillet.bibliothequeElement.utils.Factory;
 import com.teillet.bibliothequeElement.utils.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,8 +25,9 @@ public class LibraryController {
     ListView<IElements> listView;
     ObservableList<IElements> list = FXCollections.observableArrayList();
 
-    LibraryController(){
+    public void setList(){
         listView.setItems(list);
+        listView.setCellFactory(e -> new ElementListCell());
     }
 
     public void addPopUp(ActionEvent actionEvent) throws IOException {

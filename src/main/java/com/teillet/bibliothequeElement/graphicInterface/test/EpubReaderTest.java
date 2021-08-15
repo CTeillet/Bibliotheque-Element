@@ -10,12 +10,13 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.Arrays;
 
+import static javax.imageio.ImageIO.getWriterFormatNames;
 import static org.apache.commons.codec.digest.MessageDigestAlgorithms.*;
 
 
 public class EpubReaderTest {
-    public static void main(String[] args) throws Exception {
-        findCoverEpub();
+    public static void main(String[] args) {
+        imageWriter();
     }
 
     static void epubViewer() throws IOException {
@@ -51,5 +52,9 @@ public class EpubReaderTest {
 
     static void displaySystem(){
         System.out.println(System.getProperty("os.name").toLowerCase());
+    }
+
+    static void imageWriter(){
+        System.out.println(Arrays.toString(getWriterFormatNames()));
     }
 }

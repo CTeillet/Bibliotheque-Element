@@ -1,14 +1,9 @@
 package com.teillet.bibliothequeElement.library;
 
 import com.teillet.bibliothequeElement.interfaces.library.IElements;
-import org.apache.commons.codec.digest.DigestUtils;
 
 import java.io.File;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Objects;
-
-import static org.apache.commons.codec.digest.MessageDigestAlgorithms.MD5;
 
 public abstract class Elements implements IElements {
     private final String title;
@@ -27,14 +22,14 @@ public abstract class Elements implements IElements {
         return path;
     }
 
-    protected String generateNamePreview(String extension){
+    protected String generateNamePreview(){
         //String res = new String (new DigestUtils(MD5).digest(path), StandardCharsets.UTF_8);
         int test = path.hashCode();
-        return "preview/" + test + "." + extension;
+        return "preview/" + test + ".jpeg";
     }
 
-    protected boolean previewGenerated(String extension){
-        String res = generateNamePreview(extension);
+    protected boolean previewGenerated(){
+        String res = generateNamePreview();
         File f = new File(res);
         return f.exists();
     }
@@ -49,6 +44,6 @@ public abstract class Elements implements IElements {
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, path);
+        return Objects.hash(title, path, getType());
     }
 }
