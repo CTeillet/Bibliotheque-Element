@@ -20,6 +20,7 @@ public class Main extends Application {
         lb.populateListView();
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 

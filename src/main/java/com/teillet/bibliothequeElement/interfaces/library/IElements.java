@@ -7,5 +7,6 @@ public interface IElements {
     String getPath();
     Image  getPreview();
     String getType();
+    void play();
 
 }

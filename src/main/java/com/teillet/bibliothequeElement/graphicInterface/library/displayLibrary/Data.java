@@ -1,6 +1,7 @@
 package com.teillet.bibliothequeElement.graphicInterface.library.displayLibrary;
 
 import com.teillet.bibliothequeElement.interfaces.library.IElements;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -19,6 +20,8 @@ public class Data {
     @FXML
     private ImageView imageView;
 
+    private IElements elem;
+
     public Data()
     {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/bibliothequeElement/view/listCellItem.fxml"));
@@ -35,6 +38,7 @@ public class Data {
 
     public void setInfo(IElements elem)
     {
+        this.elem = elem;
         label1.setText(elem.getTitle());
         label2.setText(elem.getPath());
         imageView.setImage(elem.getPreview());
@@ -43,5 +47,10 @@ public class Data {
     public GridPane getBox()
     {
         return gridPane;
+    }
+
+    @FXML
+    public void onActionPlay(ActionEvent event){
+        elem.play();
     }
 }

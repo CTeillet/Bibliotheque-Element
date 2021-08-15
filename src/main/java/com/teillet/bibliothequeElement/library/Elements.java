@@ -23,7 +23,6 @@ public abstract class Elements implements IElements {
     }
 
     protected String generateNamePreview(){
-        //String res = new String (new DigestUtils(MD5).digest(path), StandardCharsets.UTF_8);
         int test = path.hashCode();
         return "preview/" + test + ".jpeg";
     }
@@ -33,6 +32,8 @@ public abstract class Elements implements IElements {
         File f = new File(res);
         return f.exists();
     }
+
+    public abstract void play();
 
     @Override
     public boolean equals(Object o) {

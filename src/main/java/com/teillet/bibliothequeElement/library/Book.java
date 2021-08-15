@@ -20,6 +20,11 @@ public class Book extends Elements{
     }
 
     @Override
+    public void play() {
+
+    }
+
+    @Override
     public Image getPreview() {
         try {
             if (previewGenerated()){

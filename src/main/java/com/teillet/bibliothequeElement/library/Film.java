@@ -72,6 +72,11 @@ public class Film extends Elements implements IFilm {
     }
 
     @Override
+    public void play(){
+
+    }
+
+    @Override
     public String getType() {
         return "FILM";
     }
