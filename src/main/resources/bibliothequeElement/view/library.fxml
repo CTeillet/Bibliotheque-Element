@@ -19,5 +19,5 @@
     <TextField layoutX="97.0" layoutY="25.0" prefHeight="25.0" prefWidth="310.0" />
     <Label layoutX="22.0" layoutY="29.0" text="Search" />
     <Button layoutX="508.0" layoutY="25.0" mnemonicParsing="false" text="Launch" />
-    <ListView fx:id="listView" layoutY="50.0" prefHeight="351.0" prefWidth="600.0" />
+    <ListView fx:id="listView" layoutY="50.0" prefHeight="350.0" prefWidth="600.0" maxWidth="600.0" />
 </AnchorPane>

@@ -21,7 +21,7 @@ public class Data {
 
     public Data()
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/bibliothequeElement/view/listCellItem2.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/bibliothequeElement/view/listCellItem.fxml"));
         fxmlLoader.setController(this);
         try
         {
@@ -35,8 +35,8 @@ public class Data {
 
     public void setInfo(IElements elem)
     {
-        label1.setText(elem.getPath());
-        label2.setText(elem.getTitle());
+        label1.setText(elem.getTitle());
+        label2.setText(elem.getPath());
         imageView.setImage(elem.getPreview());
     }
 
