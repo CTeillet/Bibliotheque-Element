@@ -6,7 +6,9 @@ public interface IElements {
     String getTitle();
     String getPath();
     Image  getPreview();
-    String getType();
-    void play();
+    Type getType();
 
+    enum Type {
+        Image, Game, Film, Book
+    }
 }

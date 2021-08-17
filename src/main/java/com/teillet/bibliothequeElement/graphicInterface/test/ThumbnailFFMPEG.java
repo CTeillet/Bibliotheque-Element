@@ -29,7 +29,5 @@ public class ThumbnailFFMPEG {
         FfmpegUse ffmpeg = new FfmpegUse();
         ffmpeg.thumbnail(inputFile, outputFile, new Object());
 
-
-
     }
 }

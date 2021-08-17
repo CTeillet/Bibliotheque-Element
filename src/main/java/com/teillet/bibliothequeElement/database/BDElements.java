@@ -29,7 +29,7 @@ public class BDElements implements IBDElements {
              PreparedStatement preparedStatement = conn.prepareStatement(req)){
             preparedStatement.setString(1, elements.getPath());
             preparedStatement.setString(2, elements.getTitle());
-            preparedStatement.setString(3, elements.getType());
+            preparedStatement.setString(3, elements.getType().toString());
             int res = preparedStatement.executeUpdate();
             return res == 1;
         } catch (SQLException e) {

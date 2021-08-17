@@ -20,11 +20,6 @@ public class Book extends Elements{
     }
 
     @Override
-    public void play() {
-
-    }
-
-    @Override
     public Image getPreview() {
         try {
             if (previewGenerated()){
@@ -53,7 +48,7 @@ public class Book extends Elements{
     }
 
     @Override
-    public String getType() {
-        return "Book";
+    public Type getType() {
+        return Type.Book;
     }
 }

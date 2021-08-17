@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.teillet.bibliothequeElement.graphicInterface.epubViewer.EpubViewer">
+    <MenuBar layoutX="-4.0" layoutY="-2.0" prefHeight="25.0" prefWidth="1007.0">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" text="Open"/>
+            <MenuItem mnemonicParsing="false" text="Save as ..."/>
+            <MenuItem mnemonicParsing="false" text="Reload"/>
+            <MenuItem mnemonicParsing="false" text="Exit"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="View">
+            <MenuItem mnemonicParsing="false" text="TOCContent"/>
+            <MenuItem mnemonicParsing="false" text="Content"/>
+            <MenuItem mnemonicParsing="false" text="TocContentMeta"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" text="About"/>
+        </Menu>
+    </MenuBar>
+</AnchorPane>

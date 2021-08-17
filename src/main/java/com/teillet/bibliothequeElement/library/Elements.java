@@ -33,8 +33,6 @@ public abstract class Elements implements IElements {
         return f.exists();
     }
 
-    public abstract void play();
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -8,17 +8,12 @@ public class Game extends Elements{
     }
 
     @Override
-    public void play() {
-
-    }
-
-    @Override
     public Image getPreview() {
         return null;
     }
 
     @Override
-    public String getType() {
-        return "Game";
+    public Type getType() {
+        return Type.Game;
     }
 }

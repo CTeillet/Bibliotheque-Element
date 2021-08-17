@@ -13,9 +13,7 @@ import java.util.List;
 
 import static uk.co.caprica.vlcj.javafx.videosurface.ImageViewVideoSurfaceFactory.videoSurfaceForImageView;
 
-/**
- *
- */
+
 public class VlcjJavaFxApplication extends Application {
 
     private final MediaPlayerFactory mediaPlayerFactory;
@@ -25,10 +23,9 @@ public class VlcjJavaFxApplication extends Application {
     private ImageView videoImageView;
 
     public VlcjJavaFxApplication() {
-        this.mediaPlayerFactory = new MediaPlayerFactory();
+        this.mediaPlayerFactory  = new MediaPlayerFactory();
         this.embeddedMediaPlayer = mediaPlayerFactory.mediaPlayers().newEmbeddedMediaPlayer();
-        this.embeddedMediaPlayer.snapshots().setSnapshotDirectory("C:\\Users\\teill\\Videos\\Test");
-        this.embeddedMediaPlayer.events().addMediaPlayerEventListener(new MediaPlayerEventManager());
+//        this. embeddedMediaPlayer.events().addMediaPlayerEventListener(new MediaPlayerEventManager());
     }
 
     @Override
@@ -41,12 +38,12 @@ public class VlcjJavaFxApplication extends Application {
 
     @Override
     public final void start(Stage primaryStage) {
-        List<String> params = getParameters().getRaw();
+//        List<String> params = getParameters().getRaw();
 
-        if (params.size() != 1) {
-            System.out.println("Specify a single MRL");
-            System.exit(-1);
-        }
+//        if (params.size() != 1) {
+//            System.out.println("Specify a single MRL");
+//            System.exit(-1);
+//        }
 
         BorderPane root = new BorderPane();
         root.setStyle("-fx-background-color: black;");
@@ -54,15 +51,15 @@ public class VlcjJavaFxApplication extends Application {
         videoImageView.fitWidthProperty().bind(root.widthProperty());
         videoImageView.fitHeightProperty().bind(root.heightProperty());
 
-        root.widthProperty().addListener((observableValue, oldValue, newValue) -> {
-            // If you need to know about resizes
+//        root.widthProperty().addListener((observableValue, oldValue, newValue) -> {
+//            // If you need to know about resizes
+//
+//        });
 
-        });
-
-        root.heightProperty().addListener((observableValue, oldValue, newValue) -> {
-            // If you need to know about resizes
-
-        });
+//        root.heightProperty().addListener((observableValue, oldValue, newValue) -> {
+//            // If you need to know about resizes
+//
+//        });
 
         root.setCenter(videoImageView);
 
@@ -72,11 +69,8 @@ public class VlcjJavaFxApplication extends Application {
         primaryStage.show();
 
         //System.out.println("Debut video");
-        embeddedMediaPlayer.media().play(params.get(0));
-
-        //System.out.println("Decalage");
-        //embeddedMediaPlayer.controls().setPosition(0.001f);
-        //Thread.sleep(5000);
+        String media = "C:\\Users\\teill\\test_element\\BigBuckBunny.mp4";
+        embeddedMediaPlayer.media().play(media);
 
         //embeddedMediaPlayer.controls().pause();
     }

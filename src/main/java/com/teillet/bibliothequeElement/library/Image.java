@@ -10,11 +10,6 @@ public class Image extends Elements{
     }
 
     @Override
-    public void play() {
-
-    }
-
-    @Override
     public javafx.scene.image.Image getPreview() {
         try {
             if (previewGenerated()){
@@ -37,7 +32,7 @@ public class Image extends Elements{
     }
 
     @Override
-    public String getType() {
-        return "Image";
+    public Type getType() {
+        return Type.Image;
     }
 }
