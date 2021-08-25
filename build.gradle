@@ -23,7 +23,7 @@ dependencies {
     implementation 'uk.co.caprica:vlcj:4.7.1'
     implementation 'uk.co.caprica:vlcj-javafx:1.0.2'
     implementation 'org.xerial:sqlite-jdbc:3.36.0.1'
-    implementation 'org.jetbrains:annotations:21.0.1'
+    implementation 'org.jetbrains:annotations:22.0.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
     implementation group: 'com.tagtraum', name: 'ffmpeg', version: '4.0.0', ext: 'pom'
@@ -33,7 +33,7 @@ dependencies {
 
 javafx {
     version = "16"
-    modules = ['javafx.controls', 'javafx.graphics', 'javafx.swing', 'javafx.base', 'javafx.fxml']
+    modules = ['javafx.controls', 'javafx.graphics', 'javafx.swing', 'javafx.base', 'javafx.fxml', 'javafx.media']
 }
 
 test {

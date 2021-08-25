@@ -1,5 +1,6 @@
 package com.teillet.bibliothequeElement.graphicInterface.library.displayLibrary;
 
+import com.teillet.bibliothequeElement.graphicInterface.epubViewer.NewViewer;
 import com.teillet.bibliothequeElement.interfaces.library.IElements;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,22 +9,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import nl.siegmann.epublib.viewer.Viewer;
-import uk.co.caprica.vlcj.factory.MediaPlayerFactory;
-import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-
-import static uk.co.caprica.vlcj.javafx.videosurface.ImageViewVideoSurfaceFactory.videoSurfaceForImageView;
+import java.io.*;
+import java.net.MalformedURLException;
 
 public class Data {
     @FXML
@@ -68,41 +63,49 @@ public class Data {
     public void onActionPlay(ActionEvent event){
         switch (elem.getType()){
             case Book -> {
-//                Interface nul, à refaire
-//                try{InputStream inputStream = new FileInputStream(elem.getPath());
-//                        Viewer viewer = new Viewer(inputStream);
-//                }catch(Exception e){}
+                try{
+                    InputStream inputStream = new FileInputStream(elem.getPath());
+                        NewViewer viewer = new NewViewer(inputStream);
+                }catch(Exception ignored){}
+
+
             }
             case Film -> {
-                MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory();
-                EmbeddedMediaPlayer embeddedMediaPlayer = mediaPlayerFactory.mediaPlayers().newEmbeddedMediaPlayer();
 
+                // Create the media source.
+                File elemFile = new File(elem.getPath());
 
-                BorderPane pane = new BorderPane();
-                pane.setStyle("-fx-background-color: black;");
-
-                ImageView videoImageView = new ImageView();
-                videoImageView.setPreserveRatio(true);
-
-                videoImageView.fitWidthProperty().bind(pane.widthProperty());
-                videoImageView.fitHeightProperty().bind(pane.heightProperty());
-
-                embeddedMediaPlayer.videoSurface().set(videoSurfaceForImageView(videoImageView));
-
-                pane.setCenter(videoImageView);
-
-                Scene scene = new Scene(pane, 1200, 675, Color.BLACK);
+                Media media;
+                try {
+                    media = new Media(elemFile.toURI().toURL().toString());
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                    break;
+                }
 
                 Stage stage = new Stage();
-                stage.setTitle("vlcj JavaFX");
+                HBox hbox = new HBox();
+
+                // Create and set the Scene.
+                Scene scene = new Scene(hbox, media.getWidth(), media.getHeight());
                 stage.setScene(scene);
-                stage.show();
 
-                //System.out.println("Debut video");
-                embeddedMediaPlayer.media().play(elem.getPath());
+                // Name and display the Stage.
+                stage.setTitle("Hello Media");
 
+                // Create the player and set to play automatically.
+                MediaPlayer mediaPlayer = new MediaPlayer(media);
+                mediaPlayer.setAutoPlay(true);
 
+                // Create the view and add it to the Scene.
+                MediaView mediaView = new MediaView(mediaPlayer);
 
+                hbox.getChildren().add(mediaView);
+
+                hbox.setPrefWidth(media.getWidth());
+                hbox.setPrefHeight(media.getHeight());
+
+                stage.showAndWait();
             }
             case Game -> {
 
